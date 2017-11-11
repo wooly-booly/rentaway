@@ -1,0 +1,13 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/libs/bootstrap-datepicker/bootstrap-datepicker.js": "/js/libs/bootstrap-datepicker/bootstrap-datepicker.js",
+    "/js/libs/bootstrap-datepicker/bootstrap-datepicker3.css": "/js/libs/bootstrap-datepicker/bootstrap-datepicker3.css",
+    "/js/libs/timepicker/jquery.timepicker.min.js": "/js/libs/timepicker/jquery.timepicker.min.js",
+    "/js/libs/timepicker/jquery.timepicker.min.css": "/js/libs/timepicker/jquery.timepicker.min.css",
+    "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.eot": "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.eot",
+    "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg": "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg",
+    "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.ttf": "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.ttf",
+    "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff": "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff",
+    "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff2": "/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff2"
+}
