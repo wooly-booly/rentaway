@@ -19,6 +19,6 @@ class Trip extends Model
 
     public function order()
     {
-        return $this->belongsTo('App\Models\Trip', 'trip_id', 'id');
+        return $this->belongsTo('App\Models\Order', 'trip_id', 'id');
     }
 }

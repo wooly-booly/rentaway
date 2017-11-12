@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\StoreTripRequest;
 
 class ProductsController extends Controller
 {
@@ -27,12 +28,15 @@ class ProductsController extends Controller
 
     public function product($id)
     {
-        $product = Product::with(['trips', 'images'])->find($id);
+        $product = Product::with(['trips', 'images'])->findOrFail($id);
 
-        // if ($product->isEmpty()) {
-        //     abort(404);
-        // }
-// dd($product);
         return view('products.product', compact('product'));
+    }
+
+    public function store(StoreTripRequest $request)
+    {
+        $data = $request->all();
+
+        dd($data);
     }
 }

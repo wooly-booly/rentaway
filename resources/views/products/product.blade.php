@@ -63,12 +63,25 @@
             <p>{{ $product->present()->price_per_day }}</p>
         </div>
         <div>
-            <p id="tripDate">
-                <input type="text" class="date_start" />
-                <input type="text" class="time start" /><br>
-                <input type="text" class="date_end"/>
-                <input type="text" class="time end" />
-            </p>
+            <form method="POST">
+                {{ csrf_field() }}
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }} </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <p id="tripDate">
+                    <input type="text" class="date_start" name="date_start" value="{{ old('date_start') }}" />
+                    <input type="text" class="time start" name="time_start" value="{{ old('time_start') }}" /><br><br>
+                    <input type="text" class="date_end" name="date_end" value="{{ old('date_end') }}" />
+                    <input type="text" class="time end" name="time_end" value="{{ old('time_end') }}" /><br><br>
+                    <button>Rent this car</button>
+                </p>
+            </form>
         </div>
     </div>
 </div>

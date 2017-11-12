@@ -22,4 +22,4 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/products', 'ProductsController@list')->name('home');
 Route::get('/products/{product}', 'ProductsController@product')->name('product');
-
+Route::post('/products/{product}', 'ProductsController@store')->name('store_product_trip');
