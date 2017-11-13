@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('trip_id')->unsigned()->index();
-            $table->string('comment', 128);
+            $table->string('comment', 128)->nullable();
             $table->decimal('total', 10, 2);
             $table->timestamps();
 

@@ -33,15 +33,17 @@ class AnotherTripAlreadyBooked implements Rule
      */
     public function passes($attribute, $value)
     {
-        $this->alreadyBookedTrip = Trip::where('product_id', $this->productId)
-            ->where(function ($q) {
+        $this->alreadyBookedTrip = Trip::where(function ($q) {
                 $q->whereBetween('trip_start', [$this->tripStart, $this->tripEnd])
-                    ->where('trip_start', '!=', $this->tripEnd);
+                    ->where('trip_start', '!=', $this->tripEnd)
+                    ->where('product_id', $this->productId);
             })->orWhere(function ($q) {
                 $q->whereBetween('trip_end', [$this->tripStart, $this->tripEnd])
-                ->where('trip_end', '!=', $this->tripStart);
+                    ->where('trip_end', '!=', $this->tripStart)
+                    ->where('product_id', $this->productId);
             })->orWhere(function ($q) {
-                $q->whereRaw('trip_start < ? and trip_end > ?', [$this->tripStart, $this->tripEnd]);
+                $q->whereRaw('trip_start < ? and trip_end > ?', [$this->tripStart, $this->tripEnd])
+                    ->where('product_id', $this->productId);
             })->first();
 
         if ($this->alreadyBookedTrip) {

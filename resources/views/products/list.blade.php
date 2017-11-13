@@ -6,14 +6,16 @@
         <div class="col-md-8 col-md-offset-2">
             @forelse($products as $product)
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <img src="{{ $product->image }}" alt="{{ $product->title }}"  style="width:100%;" />
+                    </div>
                     <div class="panel-body">
-                        <img src="{{ $product->image }}" alt="{{ $product->title }}" /><br/>
-                        <h3>
+                        <h3 class="pull-left">
                             <a href="{{ route('product', ['product' => $product->id]) }}"> 
                                 {{ $product->title }}
                             </a>
-                        </h3><br>
-                        {{ $product->present()->price_per_day }}<br>
+                        </h3>
+                        <h3 class="pull-right">{{ $product->present()->price_per_day }}</h3>
                     </div>
                 </div>
             @empty

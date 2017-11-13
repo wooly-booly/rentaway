@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Http\Requests\StoreTripRequest;
+use App\Http\Requests\TripRequest;
+use Session;
 
 class ProductsController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,8 +16,7 @@ class ProductsController extends Controller
 
     public function list(Product $products)
     {
-        // ToDo paginate per page to config
-        $products = $products->with('trips')->paginate(5);
+        $products = $products->with('trips')->paginate(10);
 
         return view('products.list', compact('products'));
     }
@@ -33,10 +28,14 @@ class ProductsController extends Controller
         return view('products.product', compact('product'));
     }
 
-    public function store(StoreTripRequest $request)
+    public function store(TripRequest $request)
     {
-        $data = $request->all();
+        $data = $request->only(['trip_start', 'trip_end']);
+        $data['product'] = $request->product;
 
-        dd($data);
+        Session::forget('trip_order');
+        Session::push('trip_order', collect($data));
+
+        return redirect()->route('checkout');
     }
 }
